@@ -6,15 +6,15 @@ from flask_admin import menu
 
 class FaLink(menu.MenuLink):
 
-    def __init__(self, name, url = None, endpoint = None, category = None, class_name = None, icon_type = "fa",
-                 icon_value = None, target = None):
+    def __init__(self, name, url=None, endpoint=None, category=None, class_name=None, icon_type="fa",
+                 icon_value=None, target=None):
         super(FaLink, self).__init__(name, url, endpoint, category, class_name, icon_type, icon_value, target)
 
 
 class FaModelView(sqla.ModelView):
 
-    def __init__(self, model, session, name = None, category = None, endpoint = None, url = None, static_folder = None,
-                 menu_class_name = None, menu_icon_type = "fa", menu_icon_value = None):
+    def __init__(self, model, session, name=None, category=None, endpoint=None, url=None, static_folder=None,
+                 menu_class_name=None, menu_icon_type="fa", menu_icon_value=None):
         super(FaModelView, self).__init__(model, session, name, category, endpoint, url, static_folder, menu_class_name,
                                           menu_icon_type, menu_icon_value)
 
@@ -44,7 +44,7 @@ class BaseAdminView(FaModelView):
             if current_user.is_authenticated:
                 abort(403)
             else:
-                return redirect(url_for('security.login', next = request.url))
+                return redirect(url_for('security.login', next=request.url))
 
 
 class AdminsView(BaseAdminView):
