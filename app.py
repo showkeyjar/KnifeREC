@@ -12,11 +12,11 @@ from flask_admin import menu
 from models import db
 from models.message import Message
 from models.device import Device
-from models.rec_items import RecItems
+from models.data_source import DataSource
 
 from views.message import MessageView
 from views.device import DeviceView
-from views.rec_items import RecItemsView
+from views.data_source import DataSourceView
 
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
@@ -31,13 +31,13 @@ admin = AdminLte(app, skin='green', name='KnifeREC', short_name="<b>K</b>R", lon
 # admin.add_link(FaLink(name='商品', category='数据源', url='http://tomasznajda.com',
 #                       icon_value='fa-globe', target="_blank"))
 
-admin.add_view(RecItemsView(RecItems, db.session, name=u'商品', category='数据源', menu_icon_value='fa-envelope'))
+admin.add_view(DataSourceView(DataSource, db.session, name=u'数据源', menu_icon_value='fa-envelope'))
 
-admin.add_link(FaLink(name='用户', category='数据源', url='https://github.com/tomasznajda',
-                      icon_value='fa-github', target="_blank"))
+# admin.add_link(FaLink(name='用户', category='数据源', url='https://github.com/tomasznajda',
+#                       icon_value='fa-github', target="_blank"))
 
-admin.add_view(MessageView(Message, db.session, name=u"消息", menu_icon_value='fa-envelope'))
-admin.add_view(DeviceView(Device, db.session, name=u"设备", menu_icon_value='fa-laptop'))
+admin.add_view(MessageView(Message, db.session, name=u"数据", menu_icon_value='fa-envelope'))
+admin.add_view(DeviceView(Device, db.session, name=u"模型", menu_icon_value='fa-laptop'))
 
 
 

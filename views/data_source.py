@@ -1,12 +1,12 @@
 from adminlte.views import BaseAdminView
 
 
-class RecItemsView(BaseAdminView):
-    column_editable_list = ['names', 'type', 'uri', 'fields', 'fields_type', 'created_at']
-    column_searchable_list = ['names', 'uri', 'fields', 'created_at']
+class DataSourceView(BaseAdminView):
+    column_editable_list = ['names', 'type', 'uri', 'created_at']
+    column_searchable_list = ['names', 'uri', 'created_at']
     column_exclude_list = None
     column_details_exclude_list = None
-    column_filters = ['type', 'fields_type', 'created_at']
+    column_filters = ['type', 'created_at']
     can_export = True
     can_view_details = True
     can_create = True
