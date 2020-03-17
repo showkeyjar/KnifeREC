@@ -47,14 +47,14 @@ admin = AdminLte(app, skin='green', name='KnifeREC', short_name="<b>K</b>R", lon
 # admin.add_link(FaLink(name='商品', category='数据源', url='http://tomasznajda.com',
 #                       icon_value='fa-globe', target="_blank"))
 
-admin.add_view(DataSourceView(DataSource, db.session, name=u'数据源', menu_icon_value='fa-envelope'))
-admin.add_view(DataTableView(DataTable, db.session, name=u"数据表", menu_icon_value='fa-envelope'))
+admin.add_view(DataSourceView(DataSource, db.session, name=u'数据源', menu_icon_value='fa-cube'))
+admin.add_view(DataTableView(DataTable, db.session, name=u"数据表", menu_icon_value='fa-table'))
 
-admin.add_view(MessageView(Message, db.session, name=u"特征工程", menu_icon_value='fa-envelope'))
-admin.add_view(DeviceView(Device, db.session, name=u"模型训练", menu_icon_value='fa-laptop'))
-admin.add_view(ModelPubView(ModelPub, db.session, name=u"模型部署", menu_icon_value='fa-laptop'))
+admin.add_view(MessageView(Message, db.session, name=u"特征工程", menu_icon_value='fa-filter'))
+admin.add_view(DeviceView(Device, db.session, name=u"模型训练", menu_icon_value='fa-tasks'))
+admin.add_view(ModelPubView(ModelPub, db.session, name=u"模型部署", menu_icon_value='fa-rocket'))
 
-admin.add_view(ModelStrategyView(ModelStrategy, db.session, name=u"策略设置", menu_icon_value='fa-laptop'))
+admin.add_view(ModelStrategyView(ModelStrategy, db.session, name=u"策略设置", menu_icon_value='fa-gears'))
 admin.add_view(ModelMonitorView(ModelMonitor, db.session, name=u"模型监控", menu_icon_value='fa-laptop'))
 
 admin.add_view(AdminsView(User, admin_db.session, name="管理员", menu_icon_value='fa-user-secret'))
