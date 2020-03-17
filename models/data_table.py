@@ -1,23 +1,21 @@
 from . import db
 
 """
-推荐商品源
+推荐表
 
-id          源编号
-names       源名称
-type        连接方式：csv/odps/mysql
-uri         连接地址
+id          编号
+tabname     表名称
+type        表类型：用户/商品/商家
 fields      特征名称
 fields_type 特征类型：数值/分类
 created_at  创建时间
 """
 
 
-class RecItems(db.Model):
+class DataTable(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    names = db.Column(db.String(100), default="")
-    type = db.Column(db.String(100), default="csv")
-    uri = db.Column(db.String(255), default="")
+    tabname = db.Column(db.String(100), default="")
+    type = db.Column(db.String(100), default="")
     fields = db.Column(db.String(255), default="")
     fields_type = db.Column(db.String(255), default="")
     created_at = db.Column(db.DateTime(), nullable=False)

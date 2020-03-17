@@ -1,9 +1,9 @@
 from adminlte.views import BaseAdminView
 
 
-class RecItemsView(BaseAdminView):
-    column_editable_list = ['names', 'type', 'uri', 'fields', 'fields_type', 'created_at']
-    column_searchable_list = ['names', 'uri', 'fields', 'created_at']
+class ModelPubView(BaseAdminView):
+    column_editable_list = ['tabname', 'type', 'fields', 'fields_type', 'created_at']
+    column_searchable_list = ['tabname', 'fields', 'created_at']
     column_exclude_list = None
     column_details_exclude_list = None
     column_filters = ['type', 'fields_type', 'created_at']
