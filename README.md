@@ -2,11 +2,15 @@
 
 ## 安装
 
+    pip install -r requirements.txt
+
 ## 使用
+
+    python app.py
 
 ## 技术支持
 
-zergskj@163.com
+<a href="mailto:zergskj@163.com">夜半饿得慌</a>
 
 
 ## todo
