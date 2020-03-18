@@ -14,6 +14,8 @@ from models.message import Message
 from models.device import Device
 from models.data_source import DataSource
 from models.data_table import DataTable
+from models.data_feature import DataFeature
+from models.portrait_user import PortraitUser
 from models.model_pub import ModelPub
 from models.model_strategy import ModelStrategy
 from models.model_monitor import ModelMonitor
@@ -22,6 +24,8 @@ from views.message import MessageView
 from views.device import DeviceView
 from views.data_source import DataSourceView
 from views.data_table import DataTableView
+from views.data_feature import DataFeatureView
+from views.portrait_user import PortraitUserView
 from views.model_pub import ModelPubView
 from views.model_strategy import ModelStrategyView
 from views.model_monitor import ModelMonitorView
@@ -49,8 +53,11 @@ admin = AdminLte(app, skin='green', name='KnifeREC', short_name="<b>K</b>R", lon
 
 admin.add_view(DataSourceView(DataSource, db.session, name=u'数据源', menu_icon_value='fa-cube'))
 admin.add_view(DataTableView(DataTable, db.session, name=u"数据表", menu_icon_value='fa-table'))
+admin.add_view(DataFeatureView(DataFeature, db.session, name=u"特征工程", menu_icon_value='fa-filter'))
 
-admin.add_view(MessageView(Message, db.session, name=u"特征工程", menu_icon_value='fa-filter'))
+admin.add_view(MessageView(Message, db.session, name=u"商家画像", menu_icon_value='fa-user-circle'))
+admin.add_view(PortraitUserView(PortraitUser, db.session, name=u"用户画像", menu_icon_value='fa-user'))
+
 admin.add_view(DeviceView(Device, db.session, name=u"模型训练", menu_icon_value='fa-tasks'))
 admin.add_view(ModelPubView(ModelPub, db.session, name=u"模型部署", menu_icon_value='fa-rocket'))
 

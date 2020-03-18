@@ -1,0 +1,4 @@
+"id","username","nick","login_times","view_times","search_times","consumes","head","user_desc","created_at"
+"1","小A","小A","240","1000","300","400","images/pic1.jpg","一款家用机器人","2020-03-18"
+"2","小B","小B","320","800","320","360","images/pic2.jpg","一款家用扫地机器人","2020-03-18"
+"3","小C","小C","80","2300","1000","600","images/pic3.jpg","一款聊天机器人","2020-03-18"
