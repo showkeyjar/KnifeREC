@@ -5,9 +5,9 @@ from . import db
 
 id          编号
 name        规则名称
-data_type   数据类型：number/text/datetime
+data_type   数据类型：number/category/text/datetime/all
 rule_type   规则类型：filter/replace/scale 筛选/替换/缩放
-rules       规则：none<=80% none->0   labelencode
+rules       规则：none>0.8 none:0   MinMaxScaler   LabelEncoder
 created_at  创建时间
 """
 

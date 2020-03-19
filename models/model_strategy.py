@@ -4,7 +4,7 @@ from . import db
 模型策略
 
 id          编号
-tabname     表名称
+model_id    模型编号
 type        表类型：用户/商品/商家
 fields      特征名称
 fields_type 特征类型：数值/分类
