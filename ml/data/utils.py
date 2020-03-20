@@ -14,3 +14,10 @@ def read_data(data_type,data_uri):
         sample_data = pd.read_csv(data_uri)
     return sample_data
 
+
+def extract_feature(df, columns):
+    """
+    特征抽取
+    """
+    df_result = df[columns]
+    return df_result

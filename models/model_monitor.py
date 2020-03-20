@@ -4,8 +4,8 @@ from . import db
 模型监控
 
 id          编号
-tabname     表名称
-type        表类型：用户/商品/商家
+name        监控指标
+type        指标类型：准确率/召回率/群体稳定性/困惑度
 fields      特征名称
 fields_type 特征类型：数值/分类
 created_at  创建时间

@@ -7,6 +7,10 @@
 ## 使用
 
     python app.py
+    
+预测结果调用
+
+    http://localhost:5000/predict
 
 ## Features
 
