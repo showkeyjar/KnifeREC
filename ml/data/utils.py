@@ -1,8 +1,13 @@
+import sqlalchemy
 import pandas as pd
 
 """
 数据处理工具包
 """
+
+
+def create_connect():
+    sqlalchemy.create_engine("sqlite:///test.db?check_same_thread=False", echo=True)
 
 
 def read_data(data_type,data_uri):
