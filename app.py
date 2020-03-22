@@ -15,6 +15,7 @@ from models.data_source import DataSource
 from models.data_table import DataTable
 from models.data_feature import DataFeature
 from models.portrait_user import PortraitUser
+from models.model_admin import ModelAdmin
 from models.model_train import ModelTrain
 from models.model_pub import ModelPub
 from models.model_strategy import ModelStrategy
@@ -25,6 +26,7 @@ from views.data_source import DataSourceView
 from views.data_table import DataTableView
 from views.data_feature import DataFeatureView
 from views.portrait_user import PortraitUserView
+from views.model_admin import ModelAdminView
 from views.model_train import ModelTrainView
 from views.model_pub import ModelPubView
 from views.model_strategy import ModelStrategyView
@@ -62,6 +64,7 @@ admin.add_view(DataFeatureView(DataFeature, db.session, name=u"特征工程", me
 admin.add_view(MessageView(Message, db.session, name=u"商家画像", menu_icon_value='fa-user-circle'))
 admin.add_view(PortraitUserView(PortraitUser, db.session, name=u"用户画像", menu_icon_value='fa-user'))
 
+admin.add_view(ModelAdminView(ModelAdmin, db.session, name=u"模型管理", menu_icon_value='fa-tasks'))
 admin.add_view(ModelTrainView(ModelTrain, db.session, name=u"模型训练", menu_icon_value='fa-tasks'))
 admin.add_view(ModelPubView(ModelPub, db.session, name=u"模型部署", menu_icon_value='fa-rocket'))
 

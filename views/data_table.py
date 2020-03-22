@@ -5,7 +5,7 @@ class DataTableView(BaseAdminView):
     list_template = 'admin/model/data_list.html'
     column_editable_list = ['tabname', 'type', 'fields', 'fields_type', 'created_at']
     column_searchable_list = ['tabname', 'fields', 'created_at']
-    column_exclude_list = None
+    column_exclude_list = ['fields_type']
     column_details_exclude_list = None
     column_filters = ['type', 'fields_type', 'created_at']
     can_export = True
