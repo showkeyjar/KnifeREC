@@ -2,11 +2,11 @@ from adminlte.views import BaseAdminView
 
 
 class ModelMonitorView(BaseAdminView):
-    column_editable_list = ['tabname', 'type', 'fields', 'fields_type', 'created_at']
-    column_searchable_list = ['tabname', 'fields', 'created_at']
+    column_editable_list = ['name', 'type', 'group', 'created_at']
+    column_searchable_list = ['name', 'group', 'created_at']
     column_exclude_list = None
     column_details_exclude_list = None
-    column_filters = ['type', 'fields_type', 'created_at']
+    column_filters = ['type', 'group', 'created_at']
     can_export = True
     can_view_details = True
     can_create = True
