@@ -2,6 +2,7 @@ from adminlte.views import BaseAdminView
 
 
 class DataTableView(BaseAdminView):
+    list_template = 'admin/model/data_list.html'
     column_editable_list = ['tabname', 'type', 'fields', 'fields_type', 'created_at']
     column_searchable_list = ['tabname', 'fields', 'created_at']
     column_exclude_list = None

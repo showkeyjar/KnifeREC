@@ -1,0 +1,5 @@
+{% extends 'admin/model/list.html' %}
+{% block list_row_actions %}
+    {{ super() }}
+    <a href="http://python.org">{{ get_pk_value(row) }}</a>
+{% endblock %}
