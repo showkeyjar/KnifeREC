@@ -1,10 +1,18 @@
-
+from ml.model.sort import *
 """
 todo 模型工具包
 
 4.模型训练
 5.模型部署
 """
+
+
+def get_model(type='sort'):
+    """
+    取得模型
+    """
+    model_func = exec(type)
+    return model_func
 
 
 def train_model(model, data):

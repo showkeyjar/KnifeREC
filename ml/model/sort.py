@@ -4,9 +4,15 @@
 """
 
 
-def sort(data, column):
+def sort(data, column, limit=20, asc=False):
     """
-    按指定字段排序
+    todo 按指定字段排序
     """
-    pass
+    try:
+        data.sort_values(column, ascending=asc, inplace=True)
+        ret_df = data[:limit]
+    except:
+        ret_df = None
+    return ret_df
+
 

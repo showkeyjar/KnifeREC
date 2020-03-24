@@ -1,5 +1,6 @@
 from tools.utils import *
 from ml.data.utils import *
+from ml.model.utils import *
 """
 系统主工作流程
 
@@ -13,6 +14,14 @@ from ml.data.utils import *
 
 
 def execute():
+    # 1.读取配置
     config = read_config()
-    samples = read_data(config['data_type'], config['data_uri'])
-    pass
+    conn = conn_engine(config['flask']['SQLALCHEMY_DATABASE_URI'])
+    # 2.读入数据
+    data_source = get_data_source()
+    data_type = data_source['type']
+    data_uri = data_source['uri']
+    samples = read_data(data_type, data_uri)
+    # todo 3.特征工程
+    return 1
+
