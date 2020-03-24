@@ -1,6 +1,7 @@
 import sqlalchemy
 import pandas as pd
 from models.data_source import DataSource
+from models.data_feature import DataFeature
 from sqlalchemy.sql import text,and_,or_,func
 
 """
@@ -47,6 +48,18 @@ def read_data(data_type,data_uri):
     if data_type == 'csv':
         sample_data = pd.read_csv(data_uri)
     return sample_data
+
+
+def get_data_feature():
+    """
+    获取特征工程配置
+    """
+    data_feature = DataFeature()
+    sql_data_feature = """
+        select * from data_feature limit 100
+        """
+    res = data_feature.query.filter(text(sql_data_feature)).order_by(text("id desc")).all()
+    return res
 
 
 def extract_feature(df, columns):

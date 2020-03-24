@@ -22,6 +22,10 @@ def execute():
     data_type = data_source['type']
     data_uri = data_source['uri']
     samples = read_data(data_type, data_uri)
-    # todo 3.特征工程
+    # 3.特征工程
+    data_features = get_data_feature()
+    for f in data_features:
+        # todo
+        print(f)
     return 1
 
