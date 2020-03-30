@@ -62,13 +62,15 @@ def get_data_feature():
     return res
 
 
-def extract_feature(df, columns):
+def extract_feature(df, rules):
     """
-    特征抽取
+    todo 特征抽取
     :param df:
-    :param columns:
+    :param rules:
     :return:
     """
-    df_result = df[columns]
+    rule_type = rules['rule_type']
+    if rule_type == 'filter':
+        df_result = df
     return df_result
 

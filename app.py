@@ -18,6 +18,7 @@ from models.portrait_user import PortraitUser
 from models.model_admin import ModelAdmin
 from models.model_train import ModelTrain
 from models.model_pub import ModelPub
+from models.model_output import ModelOutput
 from models.model_strategy import ModelStrategy
 from models.model_monitor import ModelMonitor
 
@@ -29,6 +30,7 @@ from views.portrait_user import PortraitUserView
 from views.model_admin import ModelAdminView
 from views.model_train import ModelTrainView
 from views.model_pub import ModelPubView
+from views.model_output import ModelOutputView
 from views.model_strategy import ModelStrategyView
 from views.model_monitor import ModelMonitorView
 
@@ -75,6 +77,7 @@ def create_menu():
     admin.add_view(ModelAdminView(ModelAdmin, db.session, name=u"模型管理", menu_icon_value='fa-tasks'))
     admin.add_view(ModelTrainView(ModelTrain, db.session, name=u"模型训练", menu_icon_value='fa-tasks'))
     admin.add_view(ModelPubView(ModelPub, db.session, name=u"模型部署", menu_icon_value='fa-rocket'))
+    admin.add_view(ModelOutputView(ModelOutput, db.session, name=u"模型输出", menu_icon_value='fa-rocket'))
 
     admin.add_view(ModelStrategyView(ModelStrategy, db.session, name=u"策略设置", menu_icon_value='fa-gears'))
     admin.add_view(ModelMonitorView(ModelMonitor, db.session, name=u"模型监控", menu_icon_value='fa-laptop'))
@@ -109,8 +112,8 @@ def build_sample_db():
         admin_db.session.commit()
 
         test_user = admins_store.create_user(
-            first_name='John',
-            last_name='Doe',
+            first_name='kejia',
+            last_name='shao',
             email='admin@admin.com',
             password=encrypt_password('admin'),
             roles=[super_admin_role, admin_role]

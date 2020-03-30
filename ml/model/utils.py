@@ -1,3 +1,7 @@
+import dill
+from models.model_pub import ModelPub
+from models.model_output import ModelOutput
+from sqlalchemy.sql import text,and_,or_,func
 from ml.model.sort import *
 """
 todo 模型工具包
@@ -31,9 +35,70 @@ def train_model(model, data):
 
 def pub_model(model,conf):
     """
-    模型部署
+    todo 模型部署
     :param model:
     :param conf:
     :return:
     """
     pass
+
+
+def get_model_pub():
+    """
+    取得部署的模型
+    """
+    model_pub = ModelPub()
+    sql_model_pub = """
+            select * from model_pub limit 100
+            """
+    res = model_pub.query.filter(text(sql_model_pub)).order_by(text("id desc")).all()
+    return res
+
+
+def load_models(pub_models):
+    """
+    加载模型
+    :param pub_models:
+    """
+    models = []
+    for pm in pub_models:
+        model_path = 'data/model/' + pm + '.pkl'
+        try:
+            with open(model_path, 'rb') as f:
+                model = dill.load(f)
+        except:
+            model = None
+        if model is not None:
+            models.append(model)
+    return models
+
+
+def model_predict(models, df):
+    """
+    预测结果
+    :param models:
+    :param df:
+    """
+    results = []
+    for m in models:
+        result = m.predict(df)
+        results.append(result)
+    return results
+
+
+def get_model_output():
+    model_output = ModelOutput()
+    sql_model_output = """
+            select * from model_output limit 100
+            """
+    res = model_output.query.filter(text(sql_model_output)).order_by(text("id desc")).all()
+    return res
+
+
+def save_results(model_output, df):
+    """
+    保存结果
+    :param model_output:
+    :param df:
+    """
+    model_output.save(df)

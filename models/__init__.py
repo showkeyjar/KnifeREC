@@ -9,5 +9,6 @@ from .portrait_user import PortraitUser
 from .model_admin import ModelAdmin
 from .model_train import ModelTrain
 from .model_pub import ModelPub
+from .model_output import ModelOutput
 from .model_strategy import ModelStrategy
 from .model_monitor import ModelMonitor
