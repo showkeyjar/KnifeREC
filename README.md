@@ -2,6 +2,12 @@
 
 系统预览
 ![view](./doc/sys_view.png)
+目前支持模型：
+
+    1.排序
+    2.FM
+    3.lda
+    4.DeepCTR
 
 ## 安装
 
