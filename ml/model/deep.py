@@ -86,5 +86,7 @@ class DeepModel():
 
 
 if __name__ == "__main__":
-    din = DeepModel()
+    din = DeepModel('DIN')
+    din.load_data()
     din.train_model()
+    result = din.predict()

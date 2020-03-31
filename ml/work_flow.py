@@ -44,6 +44,14 @@ def execute():
     results = model_predict(models, samples)
     model_outputs = get_model_output()
     save_results(model_outputs, results)
-
     return 1
 
+
+def start():
+    # todo 启动进程
+    execute()
+
+
+def stop():
+    # todo 停止进程
+    pass

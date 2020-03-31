@@ -25,3 +25,10 @@ class FMModel:
     def predict(self):
         # todo 预测结果
         return None
+
+
+if __name__ == "__main__":
+    fm = FMModel()
+    fm.load_data()
+    fm.train_model()
+    result = fm.predict()

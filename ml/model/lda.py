@@ -216,7 +216,7 @@ class LDAModel:
         self.max_token_index = self.__get_max_token_index()
         self.no_of_recommendation = 10
         self.omit_topic_below_this_fraction = 0.1
-        self.mapping = self.__init_mapping()
+        self.mapping = self.load_mapping()
         self.doc_topic_matrix = loadPickleFile('doc_topic_matrix' + tail)
 
     def load_mapping(self):
@@ -244,7 +244,7 @@ class LDAModel:
         for doc in corpus:
             if len(doc) > 0:
                 count = count + 1
-                vector = convertListToDict(lda[doc])
+                vector = self.__convertListToDict(lda[doc])
                 doc_topic_matrix[count] = vector
         return doc_topic_matrix
 
@@ -353,7 +353,7 @@ class LDAModel:
                 if token_index <= self.max_token_index:
                     t_key.append(pair)
             text_score = self.lda[t_key]
-            text_dict = convertListToDict(text_score)
+            text_dict = self.__convertListToDict(text_score)
             user_topic_vector = {}
             for seen_topic in text_dict:
                 weight = text_dict[seen_topic]

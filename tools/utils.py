@@ -7,6 +7,10 @@ conf = None
 
 
 def read_config(conf_path='config.ini'):
+    """
+    读取配置
+    :param conf_path:
+    """
     global conf
     if conf is None:
         conf = cfp.ConfigParser()
