@@ -205,8 +205,7 @@ class LDAModel:
         return lda, doc_mapping, dic, corpus_tfidf, perplexity
 
 
-class Predict():
-    def __init__(self, tail=''):
+    def load(self, tail=''):
         # current_working_dir = '/data/rec/rec_lda/'
         # os.chdir(current_working_dir)
         lda_model_path = "/data/rec/rec_lda/model/final_ldamodel" + tail
@@ -220,7 +219,7 @@ class Predict():
         self.mapping = self.__init_mapping()
         self.doc_topic_matrix = loadPickleFile('doc_topic_matrix' + tail)
 
-    def __init_mapping(self):
+    def load_mapping(self):
         path_mappingfile = '/data/rec/rec_lda/model/documentmapping' + self.tail + '.pickle'
         mappingFile = open(path_mappingfile, 'rb')
         mapping = pickle.load(mappingFile)

@@ -6,13 +6,22 @@ from lightfm.evaluation import precision_at_k
 todo FM模型
 """
 
-# Load the MovieLens 100k dataset. Only five
-# star ratings are treated as positive.
-data = fetch_movielens(min_rating=5.0)
 
-# Instantiate and train the model
-model = LightFM(loss='warp')
-model.fit(data['train'], epochs=30, num_threads=2)
+class FMModel:
+    # Load the MovieLens 100k dataset. Only five
+    # star ratings are treated as positive.
+    def load_data(self):
+        self.data = fetch_movielens(min_rating=5.0)
 
-# Evaluate the trained model
-test_precision = precision_at_k(model, data['test'], k=5).mean()
+    def train_model(self):
+        # Instantiate and train the model
+        self.model = LightFM(loss='warp')
+        self.model.fit(self.data['train'], epochs=30, num_threads=2)
+
+    def test_model(self):
+        # Evaluate the trained model
+        test_precision = precision_at_k(self.model, self.data['test'], k=5).mean()
+
+    def predict(self):
+        # todo 预测结果
+        return None
