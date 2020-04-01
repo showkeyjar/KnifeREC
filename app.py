@@ -76,10 +76,10 @@ def create_menu():
 
     admin.add_view(ModelAdminView(ModelAdmin, db.session, name=u"模型管理", menu_icon_value='fa-tasks'))
     admin.add_view(ModelTrainView(ModelTrain, db.session, name=u"模型训练", menu_icon_value='fa-tasks'))
-    admin.add_view(ModelPubView(ModelPub, db.session, name=u"模型部署", menu_icon_value='fa-rocket'))
     admin.add_view(ModelOutputView(ModelOutput, db.session, name=u"模型输出", menu_icon_value='fa-rocket'))
-
     admin.add_view(ModelStrategyView(ModelStrategy, db.session, name=u"策略设置", menu_icon_value='fa-gears'))
+
+    admin.add_view(ModelPubView(ModelPub, db.session, name=u"模型部署", menu_icon_value='fa-rocket'))
     admin.add_view(ModelMonitorView(ModelMonitor, db.session, name=u"模型监控", menu_icon_value='fa-laptop'))
 
     admin.add_view(AdminsView(User, admin_db.session, name="管理员", menu_icon_value='fa-user-secret'))

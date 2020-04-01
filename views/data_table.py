@@ -1,3 +1,4 @@
+from flask_admin import expose
 from adminlte.views import BaseAdminView
 
 
@@ -16,3 +17,9 @@ class DataTableView(BaseAdminView):
     edit_modal = True
     create_modal = True
     details_modal = True
+
+    @expose('/preview')
+    def preview(self):
+        # todo 数据预览
+        num_pages = 1
+        return self.render('admin/model/preview.html', num_pages=num_pages)

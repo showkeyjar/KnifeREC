@@ -1,5 +1,5 @@
 {% extends 'admin/model/list.html' %}
 {% block list_row_actions %}
-    <a href="/preview?id={{ get_pk_value(row) }}">预览</a>
+    <a href="/admin/datatable/preview?id={{ get_pk_value(row) }}">预览</a>
     {{ super() }}
 {% endblock %}
