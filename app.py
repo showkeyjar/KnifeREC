@@ -22,6 +22,7 @@ from models.model_output import ModelOutput
 from models.model_strategy import ModelStrategy
 from models.model_monitor import ModelMonitor
 
+from views.index import IndexView
 from views.message import MessageView
 from views.data_source import DataSourceView
 from views.data_table import DataTableView
@@ -52,6 +53,7 @@ def index():
 
 @app.route('/predict')
 def predict():
+    # todo 返回预测结果
     result = {'user_id': '1', 'prod_id': ''}
     return jsonify(result)
 
@@ -63,23 +65,24 @@ admin_migrate = Migrate(app, admin_db)
 
 security = Security(app, admins_store)
 
-admin = AdminLte(app, skin='green', name='KnifeREC', short_name="<b>K</b>R", long_name=u"<b>KnifeREC</b>推荐系统")
+admin = AdminLte(app, skin='green', name='KnifeREC', index_view=IndexView(endpoint=None), short_name="<b>K</b>R",
+                 long_name=u"<b>KnifeREC</b>推荐系统")
 
 
 def create_menu():
-    admin.add_view(DataSourceView(DataSource, db.session, name=u'数据源', menu_icon_value='fa-cube'))
+    admin.add_view(DataSourceView(DataSource, db.session, name=u'数据源', menu_icon_value='fa-database'))
     admin.add_view(DataTableView(DataTable, db.session, name=u"数据表", menu_icon_value='fa-table'))
     admin.add_view(DataFeatureView(DataFeature, db.session, name=u"特征工程", menu_icon_value='fa-filter'))
 
     admin.add_view(MessageView(Message, db.session, name=u"商家画像", menu_icon_value='fa-user-circle'))
     admin.add_view(PortraitUserView(PortraitUser, db.session, name=u"用户画像", menu_icon_value='fa-user'))
 
-    admin.add_view(ModelAdminView(ModelAdmin, db.session, name=u"模型管理", menu_icon_value='fa-tasks'))
-    admin.add_view(ModelTrainView(ModelTrain, db.session, name=u"模型训练", menu_icon_value='fa-tasks'))
+    admin.add_view(ModelAdminView(ModelAdmin, db.session, name=u"模型管理", menu_icon_value='fa-cube'))
+    admin.add_view(ModelTrainView(ModelTrain, db.session, name=u"模型训练", menu_icon_value='fa-retweet'))
     admin.add_view(ModelOutputView(ModelOutput, db.session, name=u"模型输出", menu_icon_value='fa-rocket'))
     admin.add_view(ModelStrategyView(ModelStrategy, db.session, name=u"策略设置", menu_icon_value='fa-gears'))
 
-    admin.add_view(ModelPubView(ModelPub, db.session, name=u"模型部署", menu_icon_value='fa-rocket'))
+    admin.add_view(ModelPubView(ModelPub, db.session, name=u"模型部署", menu_icon_value='fa-tasks'))
     admin.add_view(ModelMonitorView(ModelMonitor, db.session, name=u"模型监控", menu_icon_value='fa-laptop'))
 
     admin.add_view(AdminsView(User, admin_db.session, name="管理员", menu_icon_value='fa-user-secret'))

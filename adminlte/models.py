@@ -11,8 +11,8 @@ roles_users = admin_db.Table(
 
 
 class Role(admin_db.Model, RoleMixin):
-    id = admin_db.Column(admin_db.Integer(), primary_key = True)
-    name = admin_db.Column(admin_db.String(80), unique = True)
+    id = admin_db.Column(admin_db.Integer(), primary_key=True)
+    name = admin_db.Column(admin_db.String(80), unique=True)
     description = admin_db.Column(admin_db.String(255))
 
     def __str__(self):
@@ -20,13 +20,13 @@ class Role(admin_db.Model, RoleMixin):
 
 
 class User(admin_db.Model, UserMixin):
-    id = admin_db.Column(admin_db.Integer, primary_key = True)
+    id = admin_db.Column(admin_db.Integer, primary_key=True)
     first_name = admin_db.Column(admin_db.String(255))
     last_name = admin_db.Column(admin_db.String(255))
-    email = admin_db.Column(admin_db.String(255), unique = True, nullable = False)
-    password = admin_db.Column(admin_db.String(255), nullable = False)
-    active = admin_db.Column(admin_db.Boolean(), nullable = False)
-    roles = admin_db.relationship('Role', secondary = roles_users, backref = 'users')
+    email = admin_db.Column(admin_db.String(255), unique=True, nullable=False)
+    password = admin_db.Column(admin_db.String(255), nullable=False)
+    active = admin_db.Column(admin_db.Boolean(), nullable=False)
+    roles = admin_db.relationship('Role', secondary=roles_users, backref='users')
 
     def __str__(self):
         return self.first_name + " " + self.last_name + " <" + self.email + ">"
