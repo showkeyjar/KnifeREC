@@ -7,7 +7,7 @@ class IndexView(AdminIndexView):
     def default(self):
         dt = {
                 'gmv': '100',
-                'train': 'T198',
-                'track': '8'
+                'ctr': '53',
+                'cvr': '8'
             }
         return self.render('admin/index.html', dt=dt)

@@ -1,3 +1,5 @@
+from flask import request
+from ml.data.utils import *
 from flask_admin import expose
 from adminlte.views import BaseAdminView
 
@@ -21,5 +23,7 @@ class DataTableView(BaseAdminView):
     @expose('/preview')
     def preview(self):
         # todo 数据预览
-        num_pages = 1
-        return self.render('admin/model/preview.html', num_pages=num_pages)
+        dt_id = request.args.get("id")
+        df = get_data(dt_id)
+        # df = pd.DataFrame({'a':[1, 2], 'b':[3, 4], 'c':[5, 6]})
+        return self.render('admin/model/preview.html',  tables=[df.to_html(classes='table table-bordered table-hover', header="true")])
