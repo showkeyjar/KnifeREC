@@ -22,7 +22,7 @@ class DataTableView(BaseAdminView):
 
     @expose('/preview')
     def preview(self):
-        # todo 数据预览
+        #数据预览
         dt_id = request.args.get("id")
         df = get_data(dt_id)
         # df = pd.DataFrame({'a':[1, 2], 'b':[3, 4], 'c':[5, 6]})

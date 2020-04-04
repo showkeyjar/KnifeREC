@@ -84,6 +84,13 @@ def get_data_feature():
     return res
 
 
+def preview_data_feature(id):
+    """
+    todo 特征预览
+    """
+    return None
+
+
 def extract_feature(df, rules):
     """
     todo 特征抽取

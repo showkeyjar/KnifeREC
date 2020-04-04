@@ -1,0 +1,5 @@
+{% extends 'admin/model/list.html' %}
+{% block list_row_actions %}
+    <a href="/admin/datafeature/preview?id={{ get_pk_value(row) }}">预览</a>
+    {{ super() }}
+{% endblock %}
