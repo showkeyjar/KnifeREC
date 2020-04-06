@@ -42,7 +42,7 @@ def get_data_table(id):
     """
     data_table = DataTable()
     sql_data_table = "id=" + str(id)
-    res = data_table.query.filter(text(sql_data_table)).order_by(text("id desc")).limit(1).all()
+    res = data_table.query.filter(text(sql_data_table)).limit(1).all()
     return res[0]
 
 
@@ -74,6 +74,14 @@ def get_data(dt_id, nrows=10):
     return df
 
 
+def extract_feature_rule(rules):
+    """
+    todo 解析特征
+    :return:
+    """
+    return None
+
+
 def get_data_feature():
     """
     获取特征工程配置
@@ -88,7 +96,11 @@ def preview_data_feature(id):
     """
     todo 特征预览
     """
-    return None
+    data_feature = DataFeature()
+    sql_data_feature = "id=" + str(id)
+    rules = data_feature.query.filter(text(sql_data_feature)).limit(1).all()
+    res = extract_feature_rule(rules)
+    return res
 
 
 def extract_feature(df, rules):

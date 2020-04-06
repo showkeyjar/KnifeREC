@@ -23,9 +23,9 @@ class DataFeatureView(BaseAdminView):
 
     @expose('/preview')
     def preview(self):
-        #数据预览
-        dt_id = request.args.get("id")
-        df = preview_data_feature(dt_id)
+        # 数据特征预览
+        df_id = request.args.get("id")
+        df = preview_data_feature(df_id)
         # df = pd.DataFrame({'a':[1, 2], 'b':[3, 4], 'c':[5, 6]})
         return self.render('admin/model/preview.html',  tables=[df.to_html(classes='table table-bordered table-hover', header="true")])
 
