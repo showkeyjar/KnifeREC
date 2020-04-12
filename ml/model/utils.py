@@ -102,3 +102,24 @@ def save_results(model_output, df):
     :param df:
     """
     model_output.save(df)
+
+
+def load_one_model(mid):
+    """
+    todo 加载模型
+    :param mid:
+    """
+    # 这里不能直接使用 get_model
+    model = get_model(mid)
+    return model
+
+
+def start_train_model(mid):
+    """
+    训练模型
+    :param mid:
+    """
+    model = load_one_model(mid)
+    df = None
+    train_model(model, df)
+    return True

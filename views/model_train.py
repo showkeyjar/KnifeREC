@@ -1,3 +1,6 @@
+from flask import request
+from ml.model.utils import *
+from flask_admin import expose
 from adminlte.views import BaseAdminView
 
 
@@ -16,3 +19,10 @@ class ModelTrainView(BaseAdminView):
     edit_modal = True
     create_modal = True
     details_modal = True
+
+    @expose('/start')
+    def start(self):
+        #数据预览
+        m_id = request.args.get("id")
+        status = start_train_model(m_id)
+        return status
