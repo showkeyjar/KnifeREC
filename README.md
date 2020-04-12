@@ -17,6 +17,9 @@
 
     python app.py
     
+后台管理帐号：
+admin@admin.com / admin
+    
 预测结果调用
 
     http://localhost:5000/predict

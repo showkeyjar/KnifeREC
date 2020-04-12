@@ -5,7 +5,7 @@ from . import db
 
 id          编号
 name        模型名称
-type        模型类型：排序/协同过滤/文本/深度网络
+type        模型类型：sort/fm/lda/din 排序/协同过滤/文本/深度网络
 code        模型代码：sort/fm/lda/din
 file        模型文件：训练好的二进制文件
 created_at  创建时间

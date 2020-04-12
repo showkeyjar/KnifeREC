@@ -1,0 +1,6 @@
+{% extends 'admin/model/list.html' %}
+{% block list_row_actions %}
+    <a href="/admin/modeltrain/start?id={{ get_pk_value(row) }}">训练</a>
+    <a href="/admin/modeltrain/stop?id={{ get_pk_value(row) }}">停止</a>
+    {{ super() }}
+{% endblock %}

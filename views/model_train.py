@@ -2,6 +2,7 @@ from adminlte.views import BaseAdminView
 
 
 class ModelTrainView(BaseAdminView):
+    list_template = 'admin/model/model_train_list.html'
     column_editable_list = ['name', 'type', 'model', 'fields', 'created_at']
     column_searchable_list = ['name', 'model', 'fields', 'created_at']
     column_exclude_list = None
