@@ -44,6 +44,7 @@ admin@admin.com / admin
 
 1.模型管理参考digits；
 2.GMV的管控；
+3.使用EasyRL控制策略；
 
 ## 参与贡献
 
