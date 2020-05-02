@@ -22,7 +22,12 @@ class ModelTrainView(BaseAdminView):
 
     @expose('/start')
     def start(self):
-        #数据预览
+        # todo 开始训练
         m_id = request.args.get("id")
         status = start_train_model(m_id)
         return status
+
+    @expose('/pause')
+    def pause(self):
+        # todo 暂停计算
+        return None

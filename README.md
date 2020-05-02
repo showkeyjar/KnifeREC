@@ -54,6 +54,8 @@ QQ群：747460350
 
 [功能设计](./doc/design.md)
 
+[框架设计](./doc/Dev.md)
+
 ### 技术支持
 
 <a href="mailto:zergskj@163.com">夜半饿得慌</a>

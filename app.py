@@ -85,9 +85,11 @@ def create_menu():
     admin.add_view(ModelPubView(ModelPub, db.session, name=u"模型部署", menu_icon_value='fa-tasks'))
     admin.add_view(ModelMonitorView(ModelMonitor, db.session, name=u"模型监控", menu_icon_value='fa-laptop'))
 
-    admin.add_view(AdminsView(User, admin_db.session, name="管理员", menu_icon_value='fa-user-secret'))
+    admin.add_view(AdminsView(User, admin_db.session, name=u"管理员", menu_icon_value='fa-user-secret'))
     admin.set_category_icon(name='Author', icon_value='fa-address-card')
 
+
+create_menu()
 
 @security.context_processor
 def security_context_processor():
@@ -127,5 +129,4 @@ def build_sample_db():
 
 
 if __name__ == '__main__':
-    create_menu()
     app.run()
