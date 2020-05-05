@@ -24,7 +24,8 @@ class ModelTrainView(BaseAdminView):
     def start(self):
         # todo 开始训练
         m_id = request.args.get("id")
-        status = start_train_model(m_id)
+        dt_id = request.args.get("dt_id")
+        status = start_train_model(m_id, dt_id)
         return status
 
     @expose('/pause')

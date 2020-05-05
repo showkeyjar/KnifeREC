@@ -2,6 +2,7 @@ import dill
 from models.model_pub import ModelPub
 from models.model_output import ModelOutput
 from sqlalchemy.sql import text,and_,or_,func
+from ml.data.utils import get_train_data
 from ml.model.sort import *
 """
 todo 模型工具包
@@ -114,12 +115,13 @@ def load_one_model(mid):
     return model
 
 
-def start_train_model(mid):
+def start_train_model(mid, dt_id):
     """
     训练模型
     :param mid:
+    :param dt_id:
     """
     model = load_one_model(mid)
-    df = None
+    df = get_train_data(dt_id)
     train_model(model, df)
     return True

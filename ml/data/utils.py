@@ -81,6 +81,18 @@ def get_data(dt_id, nrows=10):
     return df
 
 
+def get_train_data(dt_id, n=10000):
+    """
+    取得训练数据
+    :param dt_id:
+    :param n:
+    :return:
+    """
+    datas = get_data(dt_id)
+    df = datas.sample(n)
+    return df
+
+
 def get_data_feature():
     """
     获取特征工程配置
