@@ -8,17 +8,20 @@ todo FM模型
 
 
 class FMModel:
+    def __init__(self):
+        self.model_path = "data/model/fm.pkl"
+
     # Load the MovieLens 100k dataset. Only five
     # star ratings are treated as positive.
     def load_data(self):
         self.data = fetch_movielens(min_rating=5.0)
 
-    def train_model(self):
+    def train(self, train_df):
         # Instantiate and train the model
         self.model = LightFM(loss='warp')
         self.model.fit(self.data['train'], epochs=30, num_threads=2)
 
-    def test_model(self):
+    def test(self):
         # Evaluate the trained model
         test_precision = precision_at_k(self.model, self.data['test'], k=5).mean()
 

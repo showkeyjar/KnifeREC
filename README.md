@@ -12,10 +12,18 @@
 ## 安装
 
     pip install -r requirements.txt
+    
+或者使用conda
+    
+    conda install tensorflow-gpu
 
 ## 使用
 
     python app.py
+
+## 接口调用
+
+    todo restapi
     
 后台管理帐号：
 admin@admin.com / admin
