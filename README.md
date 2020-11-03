@@ -53,6 +53,15 @@ admin@admin.com / admin
 1.模型管理参考digits；
 2.GMV的管控；
 3.使用EasyRL控制策略；
+4.使用孪生网络进行相似用户、商品划分和推荐；
+
+
+## 相关研究进展
+
+https://github.com/microsoft/recommenders
+
+https://github.com/grahamjenson/list_of_recommender_systems
+
 
 ## 参与贡献
 
