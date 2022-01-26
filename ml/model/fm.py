@@ -11,6 +11,10 @@ class FMModel:
     def __init__(self):
         self.model_path = "data/model/fm.pkl"
 
+    def load(self):
+        self.model = LightFM(loss='warp')
+        self.model.load(self.model_path)
+
     # Load the MovieLens 100k dataset. Only five
     # star ratings are treated as positive.
     def load_data(self):

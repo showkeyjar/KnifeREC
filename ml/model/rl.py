@@ -59,6 +59,13 @@ np.random.seed(0)
 
 
 class MyDDPG(DDPGModel):
+
+    def load(self):
+        """
+        todo
+        """
+        pass
+
     def _encode_obs(self, input_obs, scope="encode_obs"):
         with tf.variable_scope(name_or_scope=scope):
             h1 = tf.layers.dense(

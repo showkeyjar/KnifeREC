@@ -36,6 +36,7 @@ from views.model_strategy import ModelStrategyView
 from views.model_monitor import ModelMonitorView
 
 from tools.utils import *
+from ml.model import utils as ai
 
 app = Flask(__name__)
 # app.config.from_pyfile('config.ini')
@@ -52,9 +53,13 @@ def index():
 
 
 @app.route('/predict')
-def predict():
+def predict(type='sort'):
     # todo 返回预测结果
     result = {'user_id': '1', 'prod_id': ''}
+    try:
+        result = ai.model_predict()
+    except Exception as e:
+        print(e)
     return jsonify(result)
 
 

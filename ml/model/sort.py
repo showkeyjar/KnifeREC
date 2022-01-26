@@ -9,6 +9,11 @@ import pandas as pd
 class Sort:
     def __init__(self):
         self.data = "data/model/sort.pkl"
+    
+    def load(self):
+        with open(self.data, 'rb') as in_strm:
+            model = dill.load(in_strm)
+        return model
 
     def sort(self, data, column, limit=20, asc=False):
         """

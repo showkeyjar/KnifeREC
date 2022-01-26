@@ -20,6 +20,12 @@ class DeepModel():
         elif model_name=='DIN':
             self.model = DIN(self.linear_feature_columns, self.dnn_feature_columns, task='binary')
 
+    def load(self):
+        self.model = FLEN(self.linear_feature_columns, self.dnn_feature_columns, task='binary')
+        self.model.compile("adam", "binary_crossentropy",
+                      metrics=['binary_crossentropy'], )
+        self.model.load_model()
+
     def load_data(self):
         data = pd.read_csv('./avazu_sample.txt')
         data['day'] = data['hour'].apply(lambda x: str(x)[4:6])
